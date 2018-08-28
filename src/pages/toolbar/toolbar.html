@@ -1,14 +1,16 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>List</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-toolbar color="unisalento">
+  <ion-title>
+    UniSalento
+  </ion-title>
 
-<ion-content>
-  <ion-list>
+  <button ion-button menuToggle *ngIf="login == null">
+    <ion-icon name="menu"></ion-icon>
+  </button>
+
+</ion-toolbar>
+
+<ion-content color="unisalento">
+  <ion-list color="unisalento">
     <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
       <ion-icon [name]="item.icon" item-start></ion-icon>
       {{item.title}}

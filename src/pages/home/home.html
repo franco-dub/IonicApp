@@ -1,18 +1,31 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+  <page-toolbar [login]="'login'"></page-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+<ion-content padding="true">
+  <ion-list>
+    <ion-item>
+      <ion-label floating>
+        Email
+      </ion-label>
+      <ion-input type="email" [(ngModel)]="email"></ion-input>
+    </ion-item>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+    <ion-item>
+      <ion-label floating>
+        Password
+      </ion-label>
+      <ion-input type="password" [(ngModel)]="password" ></ion-input>
+
+      <button *ngIf="!showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()">
+        <ion-icon name="eye-off"></ion-icon>
+      </button>
+      <button *ngIf="showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()">
+        <ion-icon name="eye"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
+
+  <button ion-button block color="unisalento" (click)="submit()">Sing In</button>
 </ion-content>
